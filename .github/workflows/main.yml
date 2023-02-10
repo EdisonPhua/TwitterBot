@@ -27,7 +27,7 @@ jobs:
 
       - name: execute py script # run main.py
         env:
-          ServiceAccountKey: ${{ secrets.ServiceAccountKey }}
+          ServiceAccountKey: ${{ secrets.SERVICEACCOUNTKEY }}
         run: python Source/app.py
           
       - name: commit files

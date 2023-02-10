@@ -43,8 +43,4 @@ env/
 venv/
 ENV/
 env.bak/
-<<<<<<< HEAD
 venv.bak/
-=======
-venv.bak/
->>>>>>> ae91f9aad7a52022ec04479605e6aa18a690ce2c

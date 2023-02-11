@@ -21,10 +21,10 @@ payload = {
 response = requests.post( (url + 'tweets'), headers=headers, json=payload)
 while True:
     if response.status_code in (200,201):
-        print(f"Tweet sent successfully\n{response.text} Code : {response.status_code} ")
+        print(f"Tweet sent successfully")
         break
     elif response.status_code == 401:
-        print(f'Token has expired {response.text}{response.status_code}')
+        print(f'Token has expired')
         #Get New Access Token with refresh Token. Note, using header not headers
         header = {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -34,7 +34,6 @@ while True:
         "refresh_token": functions.database_retriever(data='bot_token')['Refresh_Token']}
         response = requests.post( ( url + 'oauth2/token'), data=data, headers=header)
         token_data = response.json()
-        print(json.dumps(token_data))
         access_token = token_data["access_token"]
         refresh_token = token_data["refresh_token"]     
         functions.update_token(New_Access_token=access_token, New_Refresh_Token=refresh_token)
@@ -43,7 +42,7 @@ while True:
         response = requests.post( (url + 'tweets'), headers=headers, json=payload)
         continue
     elif response.status_code == 400:
-        print(f'Text too long {response.status_code}')
+        print(f'Text too long')
         count += 1
         text = sent_tokenize(tweet)[:5-count]
         text = ' '.join(text)
@@ -51,7 +50,7 @@ while True:
         response = requests.post( (url + 'tweets'), headers=headers, json=payload)
         continue     
     else:
-        print(f"Error sending tweet: {response.text} Code : {response.status_code}" )
+        print(f"Error sending tweet code : {response.status_code}" )
         break
 
     

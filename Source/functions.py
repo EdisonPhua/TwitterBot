@@ -2,6 +2,11 @@ import hashlib
 import base64
 import urllib.parse
 import json
+import os
+
+secret_value = os.environ.get('SERVICEACCOUNTKEY')
+secret_value = json.loads(secret_value)
+
 
 
 def generate_code_challenge(code_verifier):
@@ -31,10 +36,8 @@ def database_retriever(*,data):
     import firebase_admin
     from firebase_admin import credentials, db 
     accepted_values = ["Auth_Para", "Client", "Consumer", "Developer Access", "bot_token"]
-    cred = credentials.Certificate("ServiceAccountKey.json")
-    with open("ServiceAccountKey.json", "r") as f:
-        data = json.load(f)
-    database_url = data["databaseURL"]
+    cred = credentials.Certificate(secret_value)
+    database_url = secret_value["databaseURL"]
     try:
         firebase_admin.initialize_app(cred, {
             'databaseURL': database_url})

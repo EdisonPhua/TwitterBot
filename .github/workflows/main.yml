@@ -1,4 +1,4 @@
-name: runs app.py
+name: Tweets Out uses app.py
 
 on:
   schedule:

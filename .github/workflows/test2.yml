@@ -3,7 +3,7 @@ name: Print Secret
 on: [push]
 
 env:
-  MY_SECRET: ${{ secrets.MY_SECRET }}
+  SERVICEACCOUNTKEY: ${{ secrets.SERVICEACCOUNTKEY }}
 
 jobs:
   print_secret:

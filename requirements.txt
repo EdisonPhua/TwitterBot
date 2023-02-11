@@ -2,3 +2,4 @@ requests
 newsdataapi
 firebase_admin
 openai
+os

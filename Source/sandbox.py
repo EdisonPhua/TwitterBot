@@ -1,9 +1,14 @@
 import firebase_admin
 from firebase_admin import credentials, db 
 import os
+import json
 
 
 secret_value = os.environ.get('SERVICEACCOUNTKEY')
+secret_value = json.loads(secret_value)
+
+
+
 cred = credentials.Certificate(secret_value)
 database_url = secret_value['databaseURL']
 firebase_admin.initialize_app(cred, {

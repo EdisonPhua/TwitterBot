@@ -2,6 +2,7 @@ import requests
 import json
 import functions
 import nltk
+nltk.download('punkt')
 from nltk import sent_tokenize
 
 url = "https://api.twitter.com/2/"

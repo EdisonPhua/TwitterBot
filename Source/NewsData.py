@@ -3,7 +3,11 @@ import json
 from newsdataapi import NewsDataApiClient
 import firebase_admin
 from firebase_admin import credentials, db 
-cred = credentials.Certificate("ServiceAccountKey.json")
+import os
+
+
+secret_value = os.environ.get('SERVICEACCOUNTKEY')
+cred = credentials.Certificate(secret_value)
 with open("ServiceAccountKey.json", "r") as f:
     data = json.load(f)
 database_url = data["databaseURL"]

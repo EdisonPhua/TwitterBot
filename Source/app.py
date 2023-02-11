@@ -1,6 +1,7 @@
 import requests
 import json
 import functions
+import nltk
 from nltk import sent_tokenize
 
 url = "https://api.twitter.com/2/"

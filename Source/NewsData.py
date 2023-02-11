@@ -10,7 +10,7 @@ secret_value = os.environ.get('SERVICEACCOUNTKEY')
 cred = credentials.Certificate(secret_value)
 with open("ServiceAccountKey.json", "r") as f:
     data = json.load(f)
-database_url = data["databaseURL"]
+database_url = secret_value['databaseURL']
 try:
     firebase_admin.initialize_app(cred, {
         'databaseURL': database_url})

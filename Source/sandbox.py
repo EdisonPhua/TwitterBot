@@ -2,7 +2,7 @@ import os
 import json
 
 # Access the secret stored in Github Actions
-secret_value = os.environ.get('ServiceAccountKey')
+secret_value = os.environ.get('SERVICEACCOUNTKEY')
 
 #hello
 # Use the secret value in your code

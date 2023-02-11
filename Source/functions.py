@@ -131,7 +131,7 @@ def NewsLooper():
             return tweet, link  
     if tweet == None or flag == True:
         print('Time to generate new articles')
-        exec(open("NewsData.py").read())
+        exec(open("Source/NewsData.py").read())
         print('Generated')   
     
     

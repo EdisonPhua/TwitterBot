@@ -3,3 +3,4 @@ newsdataapi
 firebase_admin
 openai
 os
+nltk

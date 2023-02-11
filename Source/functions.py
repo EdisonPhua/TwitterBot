@@ -56,10 +56,8 @@ def database_retriever(*,data):
 def update_token(*,New_Access_token, New_Refresh_Token):
     import firebase_admin
     from firebase_admin import credentials, db 
-    cred = credentials.Certificate("ServiceAccountKey.json")
-    with open("ServiceAccountKey.json", "r") as f:
-        data = json.load(f)
-    database_url = data["databaseURL"]
+    cred = credentials.Certificate(secret_value)
+    database_url = secret_value["databaseURL"]
     try:
         firebase_admin.initialize_app(cred, {
             'databaseURL': database_url})
@@ -75,10 +73,8 @@ def generateTLDR(*, prompt):
     import openai
     import firebase_admin
     from firebase_admin import credentials, db 
-    cred = credentials.Certificate("ServiceAccountKey.json")
-    with open("ServiceAccountKey.json", "r") as f:
-        data = json.load(f)
-    database_url = data["databaseURL"]
+    cred = credentials.Certificate(secret_value)
+    database_url = secret_value["databaseURL"]
     try:
         firebase_admin.initialize_app(cred, {
             'databaseURL': database_url})
@@ -101,10 +97,8 @@ def generateTLDR(*, prompt):
 def NewsStorer(*, date,title,link,content,count,tldr):
     import firebase_admin
     from firebase_admin import credentials, db 
-    cred = credentials.Certificate("ServiceAccountKey.json")    
-    with open("ServiceAccountKey.json", "r") as f:
-        data = json.load(f)
-    database_url = data["databaseURL"]
+    cred = credentials.Certificate(secret_value)
+    database_url = secret_value["databaseURL"]
     try:
         firebase_admin.initialize_app(cred, {
             'databaseURL': database_url})

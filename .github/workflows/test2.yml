@@ -1,0 +1,14 @@
+name: Print Secret
+
+on: [push]
+
+env:
+  MY_SECRET: ${{ secrets.MY_SECRET }}
+
+jobs:
+  print_secret:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Print Secret
+      run: |
+        echo "The secret is: $MY_SECRET"

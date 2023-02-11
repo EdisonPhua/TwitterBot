@@ -1,5 +1,5 @@
 requests
 newsdataapi
-firebase_admin
+firebase-admin
 openai
 nltk

@@ -17,9 +17,9 @@ try:
 except ValueError:
     pass 
 ref = db.reference('News/')
-News = ref.set()
+News = ref.get()
 for Source in News:
-            Source_ref = ref.child(Source)
-            Source_ref.update({'title': 'Tweeted'})
+        Source_ref = ref.child(Source)
+        Source_ref.update({'title': 'Tweeted'})
 
 

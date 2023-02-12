@@ -15,4 +15,4 @@ text = sent_tokenize(tweet)[:5]
 text = ' '.join(text)
 count = 0
 
-print(text)
+print(f'{text}, with link {link}')

@@ -114,30 +114,8 @@ def NewsStorer(*, date,title,link,content,count,tldr):
     'date': date ,
     'tldr': tldr 
     })   
+
 def NewsLooper():
-    from firebase_admin import db 
-    ref = db.reference('News/')
-    News = ref.get()
-    tweet = None
-    flag = False
-    for Source in News:
-        title = News[Source]['title']    
-        if not title == 'Tweeted':
-            tweet = News[Source]['tldr']
-            link = News[Source]['link']          
-            Source_ref = ref.child(Source)
-            Source_ref.update({'title': 'Tweeted'})
-            if Source == list(News.keys())[-1]:
-                flag = True
-            return tweet, link  
-    if tweet == None or flag == True:
-        print('Time to generate new articles')
-        exec(open("Source/NewsData.py").read())
-        time.sleep(5)
-        print('Generated')   
-    
-    
-def NewsLooper2():
     import firebase_admin
     from firebase_admin import credentials, db 
     cred = credentials.Certificate(secret_value)
@@ -159,7 +137,6 @@ def NewsLooper2():
                 Source_ref = ref.child(Source)
                 Source_ref.update({'title': 'Tweeted'})
                 return tweet, link  
-                break
         if tweet == None:
             print('Time to generate new articles')
             exec(open("Source/NewsData.py").read())

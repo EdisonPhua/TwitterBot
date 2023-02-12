@@ -6,7 +6,8 @@ nltk.download('punkt')
 from nltk import sent_tokenize
 
 tweet, link = functions.NewsLooper2()
-
+print(tweet)
+print(link)
 text = sent_tokenize(tweet)[:5]
 text = ' '.join(text)
 count = 0

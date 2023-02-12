@@ -147,10 +147,10 @@ def NewsLooper2():
             'databaseURL': database_url})
     except ValueError:
         pass   
-    ref = db.reference('News/')
-    News = ref.get()
     tweet = None
     while True:
+        ref = db.reference('News/')
+        News = ref.get()        
         for Source in News:
             title = News[Source]['title']    
             if not title == 'Tweeted':

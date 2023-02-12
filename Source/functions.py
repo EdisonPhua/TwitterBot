@@ -150,19 +150,21 @@ def NewsLooper2():
     ref = db.reference('News/')
     News = ref.get()
     tweet = None
-    for Source in News:
-        title = News[Source]['title']    
-        if not title == 'Tweeted':
-            tweet = News[Source]['tldr']
-            link = News[Source]['link']          
-            Source_ref = ref.child(Source)
-            Source_ref.update({'title': 'Tweeted'})
-            return tweet, link  
-    if tweet == None:
-        print('Time to generate new articles')
-        exec(open("Source/NewsData.py").read())
-        time.sleep(5)
-        print('Generated')  
+    while True:
+        for Source in News:
+            title = News[Source]['title']    
+            if not title == 'Tweeted':
+                tweet = News[Source]['tldr']
+                link = News[Source]['link']          
+                Source_ref = ref.child(Source)
+                Source_ref.update({'title': 'Tweeted'})
+                return tweet, link  
+        if tweet == None:
+            print('Time to generate new articles')
+            exec(open("Source/NewsData.py").read())
+            time.sleep(5)
+            print('Generated')
+            continue
     
     
     

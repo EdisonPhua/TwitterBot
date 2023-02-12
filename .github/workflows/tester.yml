@@ -1,7 +1,7 @@
 name: tester 
 
 
-on: workflow_dispatchay
+on: workflow_dispatch
 
 jobs:
   build:

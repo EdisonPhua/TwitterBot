@@ -1,8 +1,6 @@
 name: Tweets Out uses app.py
 
-on:
-  schedule:
-    - cron: '0 */1 * * *' # At 00:00 on Monday
+on: workflow_dispatchay
 
 jobs:
   build:

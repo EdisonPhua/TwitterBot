@@ -16,8 +16,10 @@ try:
         'databaseURL': database_url})
 except ValueError:
     pass 
-ref = db.reference('OpenAI/')
-users_ref = ref.child('NewsData')
-Key = users_ref.get()['API']
+ref = db.reference('News/')
+News = ref.set()
+for Source in News:
+            Source_ref = ref.child(Source)
+            Source_ref.update({'title': 'Tweeted'})
 
 

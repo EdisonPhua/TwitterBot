@@ -138,7 +138,15 @@ def NewsLooper():
     
     
 def NewsLooper2():
-    from firebase_admin import db 
+    import firebase_admin
+    from firebase_admin import credentials, db 
+    cred = credentials.Certificate(secret_value)
+    database_url = secret_value["databaseURL"]
+    try:
+        firebase_admin.initialize_app(cred, {
+            'databaseURL': database_url})
+    except ValueError:
+        pass   
     ref = db.reference('News/')
     News = ref.get()
     tweet = None

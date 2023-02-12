@@ -9,7 +9,7 @@ print('Time to generate new articles')
 exec(open("Source/NewsData.py").read())
 print('Generated')  
 
-tweet, link = functions.NewsLooper()
+tweet, link = functions.NewsLooper2()
 
 text = sent_tokenize(tweet)[:5]
 text = ' '.join(text)

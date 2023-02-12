@@ -159,6 +159,7 @@ def NewsLooper2():
                 Source_ref = ref.child(Source)
                 Source_ref.update({'title': 'Tweeted'})
                 return tweet, link  
+                break
         if tweet == None:
             print('Time to generate new articles')
             exec(open("Source/NewsData.py").read())

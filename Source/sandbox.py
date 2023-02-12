@@ -6,7 +6,7 @@ nltk.download('punkt')
 from nltk import sent_tokenize
 
 print('Time to generate new articles')
-exec(open("Source/NewsData.py").read())
+exec(open("NewsData.py").read())
 print('Generated')  
 
 tweet, link = functions.NewsLooper()

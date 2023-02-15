@@ -1,15 +1,4 @@
-import requests
-import json
-import functions
-import nltk
-nltk.download('punkt')
-from nltk import sent_tokenize
+list=[0,1,2,3,4]
 
-tweet, link = functions.NewsLooper2()
-print(tweet)
-print(link)
-text = sent_tokenize(tweet)[:5]
-text = ' '.join(text)
-count = 0
-
-print(f'{text}, with link {link}')
+for i in range(7):
+    print(list[i])

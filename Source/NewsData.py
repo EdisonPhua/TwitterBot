@@ -48,6 +48,9 @@ while True:
     if count == 10:
         break
 print('Updated!')
+
+
+#Created this note in NewsData.py
     
     
 

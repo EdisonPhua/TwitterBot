@@ -1,6 +1,6 @@
 import os
 
 
-secret = os.environ.get('SERVICEACCOUNTKEY')
+test = os.environ.get('test')
 
-print(secret)
+print(test)

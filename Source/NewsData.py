@@ -45,10 +45,11 @@ while True:
         functions.NewsStorer(count=count, date=date,title=title,link=link,content=text,tldr=tldr )   
         if count == 10:
             break
+    if count == 10: 
+        break 
     else:
         continue # This statement is only executed if the loop completes without a 'break' statement
-    if count == 10: 
-        break
+
 print('Updated!')
 
     

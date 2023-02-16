@@ -49,7 +49,7 @@ while True:
     if count == 10: 
         break 
     else:
-        continue # This statement is only executed if the loop completes without a 'break' statement
+        continue # This statement is only if count not 10, hence we didnt retrieve enough articles and hence goes back up to the true loop.
 
 print('Updated!')
 

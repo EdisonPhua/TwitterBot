@@ -1,4 +1,6 @@
-list=[0,1,2,3,4]
+import os
 
-for i in range(7):
-    print(list[i])
+
+secret = os.environ.get('SERVICEACCOUNTKEY')
+
+print(secret)

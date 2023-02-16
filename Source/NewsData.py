@@ -38,7 +38,8 @@ while True:
         text = text[:500]
         text = " ".join(text) 
         text = json.dumps(text)
-        tldr = functions.generateTLDR(prompt=text)  
+        tldr = 'This is a tldr'
+        #tldr = functions.generateTLDR(prompt=text)  
         link = response['results'][i]['link']
         title = response['results'][i]['title']
         date = response['results'][i]['pubDate']  

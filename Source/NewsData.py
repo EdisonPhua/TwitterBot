@@ -43,9 +43,9 @@ while True:
         date = response['results'][i]['pubDate']  
         count +=1   
         functions.NewsStorer(count=count, date=date,title=title,link=link,content=text,tldr=tldr )   
-        if count == 10:
+        if count == 11:
             break
-    if count == 10:
+    if count == 11:
         break
 print('Updated!')
 

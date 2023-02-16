@@ -27,6 +27,7 @@ while True:
         try:
             text = response['results'][i]['content']
         except ValueError or IndexError:
+            print('Going to next page')
             nextpage = response['nextPage']
             response = api.news_api( country = 'us,cn,jp,kr,de', category='technology,science,business,top', language='en', page=nextpage  )
             continue

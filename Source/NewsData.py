@@ -44,11 +44,11 @@ while True:
         date = response['results'][i]['pubDate']  
         count +=1   
         functions.NewsStorer(count=count, date=date,title=title,link=link,content=text,tldr=tldr )   
-        if count == 11:
+        if count == 10:
             break
     else:
         continue
-    if count == 11:
+    if count == 10:
         break
 print('Updated!')
 

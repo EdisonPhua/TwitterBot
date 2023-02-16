@@ -23,15 +23,14 @@ api = NewsDataApiClient(apikey=Key)
 response = api.news_api( country = 'us,cn,jp,kr,de', category='technology,science', language='en'  )
 count = 0
 while True:
-    for i in range(response['totalResults']):    
+    for i in range(response['totalResults']):  
+        print('Start of the for loop')  
         try:
             text = response['results'][i]['content']
         except (ValueError,IndexError):
             print('Going to next page')
             nextpage = response['nextPage']
             print(f"Next page: {nextpage}")
-            text = response['results'][i]['content']
-            print(text)
             response = api.news_api( country = 'us,cn,jp,kr,de', category='technology,science,business,top', language='en', page=nextpage  )
             continue
         if text == None:

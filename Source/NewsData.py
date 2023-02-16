@@ -29,7 +29,7 @@ while True:
         except (ValueError,IndexError):
             nextpage = response['nextPage']
             response = api.news_api( country = 'us,cn,jp,kr,de', category='technology,science,business,top', language='en', page=nextpage  )
-            continue
+            break
         if text == None:
             continue
         text = f''' {text} '''
@@ -46,6 +46,8 @@ while True:
         functions.NewsStorer(count=count, date=date,title=title,link=link,content=text,tldr=tldr )   
         if count == 11:
             break
+    else:
+        continue
     if count == 11:
         break
 print('Updated!')

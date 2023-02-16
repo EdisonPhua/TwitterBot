@@ -1,6 +1,6 @@
 while True:
-    input = str(input('enter:'))
-    if input == 'stop':
+    bruh = str(input('enter:'))
+    if bruh == 'stop':
         break
     else:
         continue

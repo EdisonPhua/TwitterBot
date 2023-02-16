@@ -49,8 +49,6 @@ while True:
         break
 print('Updated!')
 
-
-#Created this note in NewsData.py
     
     
 

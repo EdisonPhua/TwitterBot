@@ -29,6 +29,7 @@ while True:
         except (ValueError,IndexError):
             print('Going to next page')
             nextpage = response['nextPage']
+            print(f"Next page: {nextpage}")
             response = api.news_api( country = 'us,cn,jp,kr,de', category='technology,science,business,top', language='en', page=nextpage  )
             continue
         if text == None:

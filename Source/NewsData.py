@@ -46,8 +46,8 @@ while True:
         if count == 10:
             break
     else:
-        continue
-    if count == 10:
+        continue # This statement is only executed if the loop completes without a 'break' statement
+    if count == 10: 
         break
 print('Updated!')
 

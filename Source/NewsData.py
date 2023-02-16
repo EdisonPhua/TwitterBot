@@ -45,6 +45,7 @@ while True:
         functions.NewsStorer(count=count, date=date,title=title,link=link,content=text,tldr=tldr )   
         if count == 10:
             break
+    
     if count == 10: 
         break 
     else:

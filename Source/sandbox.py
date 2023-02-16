@@ -1,8 +1,13 @@
-import os
+import requests
+import json
+import functions
+import nltk
+nltk.download('punkt')
+from nltk import sent_tokenize
 
 
-test = os.environ.get('test')
+tweet, link = functions.NewsLooper()
 
-print(os.environ)
-
-#wtf
+print(tweet)
+print(link)
+    

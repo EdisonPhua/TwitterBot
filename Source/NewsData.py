@@ -29,9 +29,9 @@ while True:
         except (ValueError,IndexError):
             nextpage = response['nextPage']
             response = api.news_api( country = 'us,cn,jp,kr,de', category='technology,science,business,top', language='en', page=nextpage  )
-            break
+            break #When this break is executed, it breaks out of the for loop, going to the if count and then else below
         if text == None:
-            continue
+            continue #loops back up to the for loop
         text = f''' {text} '''
         text = text.split()    
         text = text[:500]

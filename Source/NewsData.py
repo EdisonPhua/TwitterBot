@@ -24,13 +24,10 @@ response = api.news_api( country = 'us,cn,jp,kr,de', category='technology,scienc
 count = 0
 while True:
     for i in range(response['totalResults']):  
-        print(response)  
         try:
             text = response['results'][i]['content']
         except (ValueError,IndexError):
-            print('Going to next page')
             nextpage = response['nextPage']
-            print(f"Next page: {nextpage}")
             response = api.news_api( country = 'us,cn,jp,kr,de', category='technology,science,business,top', language='en', page=nextpage  )
             continue
         if text == None:

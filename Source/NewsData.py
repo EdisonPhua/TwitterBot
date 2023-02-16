@@ -37,16 +37,17 @@ while True:
         text = text[:500]
         text = " ".join(text) 
         text = json.dumps(text)
-        tldr = functions.generateTLDR(prompt=text)  
+        tldr = 'tldr'
+        #tldr = functions.generateTLDR(prompt=text)  
         link = response['results'][i]['link']
         title = response['results'][i]['title']
         date = response['results'][i]['pubDate']  
         count +=1   
         functions.NewsStorer(count=count, date=date,title=title,link=link,content=text,tldr=tldr )   
-        if count == 10:
+        if count == 30:
             break
     
-    if count == 10: 
+    if count == 30: 
         break 
     else:
         continue # This statement is only executed if the loop completes without a 'break' statement

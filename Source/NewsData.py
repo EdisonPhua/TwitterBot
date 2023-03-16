@@ -22,6 +22,7 @@ Key = users_ref.get()['API']
 api = NewsDataApiClient(apikey=Key)
 response = api.news_api( country = 'us,cn,jp,kr,de', category='technology,science', language='en'  )
 count = 0
+errors = 0
 while True:
     for i in range(response['totalResults']):  
         try:
@@ -42,6 +43,8 @@ while True:
             tldr = functions.generateTLDR(prompt=text) 
         except Exception as e:
             print(f'An error occucured {e}')
+            errors += 1
+            continue
             
          
         link = response['results'][i]['link']
@@ -57,7 +60,7 @@ while True:
     else:
         continue # This statement is only if count not 10, hence we didnt retrieve enough articles and hence goes back up to the true loop.
 
-print('Updated!')
+print(f'Updated! With {errors} errors!')
 
     
     

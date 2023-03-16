@@ -37,7 +37,13 @@ while True:
         text = text[:400]
         text = " ".join(text) 
         text = json.dumps(text)
-        tldr = functions.generateTLDR(prompt=text)  
+        
+        try:
+            tldr = functions.generateTLDR(prompt=text) 
+        except Exception as e:
+            print(f'An error occucured {e}')
+            
+         
         link = response['results'][i]['link']
         title = response['results'][i]['title']
         date = response['results'][i]['pubDate']  

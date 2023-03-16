@@ -34,7 +34,7 @@ while True:
             continue #loops back up to the for loop
         text = f''' {text} '''
         text = text.split()    
-        text = text[:500]
+        text = text[:400]
         text = " ".join(text) 
         text = json.dumps(text)
         tldr = functions.generateTLDR(prompt=text)  

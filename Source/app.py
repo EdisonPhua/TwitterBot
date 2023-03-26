@@ -44,6 +44,7 @@ while True:
         continue
     elif response.status_code == 400:
         print(f'Text too long')
+        #Don't know why but not including a sleep(5) may occasional result in 401 error thus triggering a 401 and calling new tokens
         time.sleep(5)
         count += 1
         text = sent_tokenize(tweet)[:5-count]

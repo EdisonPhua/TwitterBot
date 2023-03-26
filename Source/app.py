@@ -1,5 +1,4 @@
 import requests
-import json
 import functions
 import nltk
 nltk.download('punkt')

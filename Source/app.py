@@ -3,6 +3,7 @@ import functions
 import nltk
 nltk.download('punkt')
 from nltk import sent_tokenize
+import time
 
 
 url = "https://api.twitter.com/2/"
@@ -43,6 +44,7 @@ while True:
         continue
     elif response.status_code == 400:
         print(f'Text too long')
+        time.sleep(5)
         count += 1
         text = sent_tokenize(tweet)[:5-count]
         text = ' '.join(text)

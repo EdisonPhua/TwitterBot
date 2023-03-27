@@ -33,7 +33,8 @@ while True:
         data = {
         "grant_type": "refresh_token",
         "refresh_token": functions.database_retriever(data='bot_token')['Refresh_Token']}
-        response = requests.post( ( url + 'oauth2/token'), data=data, headers=header)
+        response = requests.post(( url + 'oauth2/token'), data=data, headers=header)
+        time.sleep(1)
         token_data = response.json()
         access_token = token_data["access_token"]
         refresh_token = token_data["refresh_token"]     
@@ -45,7 +46,7 @@ while True:
     elif response.status_code == 400:
         print(f'Text too long')
         #Don't know why but not including a sleep(5) may occasional result in 401 error thus triggering a 401 and calling new tokens
-        time.sleep(5)
+        time.sleep(3)
         count += 1
         text = sent_tokenize(tweet)[:5-count]
         text = ' '.join(text)

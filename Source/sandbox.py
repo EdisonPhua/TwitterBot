@@ -1,7 +1,5 @@
+import functions 
 
-for i in range(7):
-    print(i) 
+text, link = functions.NewsLooper()
 
- 
-else:
-    print('else triggered')
+print(text, link)

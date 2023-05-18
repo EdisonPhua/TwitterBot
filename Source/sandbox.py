@@ -22,8 +22,8 @@ api = NewsDataApiClient(apikey=Key)
 response = api.news_api( country = 'us,cn,jp,kr,de', category='technology,science', language='en'  )
 count = 0
 errors = 0
-print(response)
-text = response['results'][i]['content']
+
+text = response['results'][1]['content']
 print(text)
 
     

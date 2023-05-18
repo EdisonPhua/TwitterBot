@@ -22,16 +22,12 @@ api = NewsDataApiClient(apikey=Key)
 response = api.news_api( country = 'us,cn,jp,kr,de', category='technology,science', language='en'  )
 count = 0
 errors = 0
-while True:
-    for i in range(response['totalResults']):  
-        try:
-            text = response['results'][i]['content']
-        except (ValueError,IndexError):
-            nextpage = response['nextPage']
-            response = api.news_api( country = 'us,cn,jp,kr,de', category='technology,science,business,top', language='en', page=nextpage  )
-            break #When this break is executed, it breaks out of the for loop, going to the if count and then else below
+while flag == True:
+    response = api.news_api( country = 'us,cn,jp,kr,de', category='technology,science', language='en', page=page)  
+    for i in range(len(response['results'])):  
+        text = response['results'][i]['title']
         if text == None:
-            continue #loops back up to the for loop
+            continue
         text = f''' {text} '''
         text = text.split()    
         text = text[:500]
@@ -44,20 +40,22 @@ while True:
             print(f'An error occucured {e}')
             errors += 1
             continue
-            
-         
+        
         link = response['results'][i]['link']
         title = response['results'][i]['title']
         date = response['results'][i]['pubDate']  
         count +=1   
-        functions.NewsStorer(count=count, date=date,title=title,link=link,content=text,tldr=tldr )   
+        functions.NewsStorer(count=count, date=date,title=title,link=link,content=text,tldr=tldr ) 
+        
         if count == 10:
+            flag = False
             break
+
+    page = response.get('nextPage',None)
     
-    if count == 10: 
-        break 
-    else:
-        continue # This statement is only if count not 10, hence we didnt retrieve enough articles and hence goes back up to the true loop.
+    if not page:
+
+        break
 
 print(f'Updated! With {errors} errors!')
 

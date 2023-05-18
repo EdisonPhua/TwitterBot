@@ -20,14 +20,17 @@ users_ref = ref.child('NewsData')
 Key = users_ref.get()['API']
 api = NewsDataApiClient(apikey=Key)
 page=None
-
+count = 0
 while True:
 
     response = api.news_api( country = 'us,cn,jp,kr,de', category='technology,science', language='en', page=page)
+    
+    print(count)
     for i in range(len(response['results'])):  
         print(response['results'][i]['title'])
 
     page = response.get('nextPage',None)
+    count += 1
 
     if not page:
 

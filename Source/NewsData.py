@@ -5,12 +5,6 @@ import firebase_admin
 from firebase_admin import credentials, db 
 import os
 
-
-
-
-
-
-
 secret_value = os.environ.get('SERVICEACCOUNTKEY')
 secret_value = json.loads(secret_value)
 

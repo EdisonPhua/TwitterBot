@@ -25,7 +25,7 @@ while True:
 
     response = api.news_api( country = 'us,cn,jp,kr,de', category='technology,science', language='en', page=page)
     
-    print(response)
+    print(response['results'][1]['title'])
 
     page = response.get('nextPage',None)
 

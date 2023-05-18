@@ -23,7 +23,7 @@ page=None
 
 while True:
 
-    response = api.news_api(page = page)
+    response = api.news_api( country = 'us,cn,jp,kr,de', category='technology,science', language='en'  )
     print(response)
 
     page = response.get('nextPage',None)

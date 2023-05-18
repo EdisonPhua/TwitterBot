@@ -27,7 +27,9 @@ while True:
     
     print(count)
     for i in range(len(response['results'])):  
-        print(response['results'][i]['title'])
+        text = response['results'][i]['title']
+        if text == None:
+            continue
 
     page = response.get('nextPage',None)
     count += 1

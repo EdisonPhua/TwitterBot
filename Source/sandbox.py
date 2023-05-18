@@ -31,6 +31,11 @@ while True:
         text = response['results'][i]['title']
         if text == None:
             continue
+        text = f''' {text} '''
+        text = text.split()    
+        text = text[:500]
+        text = " ".join(text) 
+        text = json.dumps(text)
 
     page = response.get('nextPage',None)
     count += 1

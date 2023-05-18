@@ -19,10 +19,18 @@ ref = db.reference('OpenAI/')
 users_ref = ref.child('NewsData')
 Key = users_ref.get()['API']
 api = NewsDataApiClient(apikey=Key)
-response = api.news_api( country = 'us,cn,jp,kr,de', category='technology,science', language='en'  )
-count = 0
-errors = 0
-print(response)
+page=None
+
+while True:
+
+    response = api.news_api(page = page)
+    print(response)
+
+    page = response.get('nextPage',None)
+
+    if not page:
+
+        break
 
 
     

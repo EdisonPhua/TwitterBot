@@ -19,14 +19,11 @@ ref = db.reference('OpenAI/')
 users_ref = ref.child('NewsData')
 Key = users_ref.get()['API']
 api = NewsDataApiClient(apikey=Key)
-
+errors = 0 
 page=None
 count = 0
 while True:
-
-    response = api.news_api( country = 'us,cn,jp,kr,de', category='technology,science', language='en', page=page)
-    
-    print(count)
+    response = api.news_api( country = 'us,cn,jp,kr,de', category='technology,science', language='en', page=page)  
     for i in range(len(response['results'])):  
         text = response['results'][i]['title']
         if text == None:
@@ -36,10 +33,25 @@ while True:
         text = text[:500]
         text = " ".join(text) 
         text = json.dumps(text)
+        
+        try:
+            tldr = functions.generateTLDR(prompt=text) 
+        except Exception as e:
+            print(f'An error occucured {e}')
+            errors += 1
+            continue
+        
+        link = response['results'][i]['link']
+        title = response['results'][i]['title']
+        date = response['results'][i]['pubDate']  
+        count +=1   
+        functions.NewsStorer(count=count, date=date,title=title,link=link,content=text,tldr=tldr ) 
+        
+        if count == 10:
+            break
 
     page = response.get('nextPage',None)
-    count += 1
-
+    
     if not page:
 
         break

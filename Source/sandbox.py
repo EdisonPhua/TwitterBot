@@ -19,6 +19,7 @@ ref = db.reference('OpenAI/')
 users_ref = ref.child('NewsData')
 Key = users_ref.get()['API']
 api = NewsDataApiClient(apikey=Key)
+
 page=None
 count = 0
 while True:

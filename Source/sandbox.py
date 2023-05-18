@@ -19,10 +19,10 @@ ref = db.reference('OpenAI/')
 users_ref = ref.child('NewsData')
 Key = users_ref.get()['API']
 api = NewsDataApiClient(apikey=Key)
-errors = 0 
+errors,count = 0,0 
 page=None
-count = 0
-while True:
+flag = True
+while flag == True:
     response = api.news_api( country = 'us,cn,jp,kr,de', category='technology,science', language='en', page=page)  
     for i in range(len(response['results'])):  
         text = response['results'][i]['title']
@@ -48,6 +48,7 @@ while True:
         functions.NewsStorer(count=count, date=date,title=title,link=link,content=text,tldr=tldr ) 
         
         if count == 10:
+            flag = False
             break
 
     page = response.get('nextPage',None)

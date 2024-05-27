@@ -1,6 +1,6 @@
 # News Summarizer and Tweeter
 
-This project uses OpenAI and Twitter APIs to generate and post summaries of news articles from different countries and categories.
+This projects uses OpenAI and Twitter APIs to generate and post summaries of news articles from different countries and categories.
 
 ## Features
 
